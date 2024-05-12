@@ -10,3 +10,15 @@ export const ActorContainer = styled.div`
   text-align: center;
   font-size: 20px;
 `;
+
+export const GenreContainer = styled.div`
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+`
