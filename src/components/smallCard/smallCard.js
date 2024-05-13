@@ -1,5 +1,6 @@
 import React from "react";
+import { Container } from "./styled";
 
 export const SmallCard = ({ props }) => {
-  return <div>{props}</div>;
+  return <Container><div>{props}</div></Container>;
 };

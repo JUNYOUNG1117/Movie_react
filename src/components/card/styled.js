@@ -9,5 +9,7 @@ export const Container = styled.div`
   &:hover {
     background-color: black;
     color: white;
+    
   }
+  
 `;

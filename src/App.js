@@ -8,6 +8,7 @@ import "./App.css";
 import { Header } from "./components/header/header";
 import { Main } from "./pages/main/main";
 import { MovieDetail } from "./pages/movieDetail/movieDetail";
+import { SearchMovie } from "./pages/serchMovie/searchMovie";
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
           exact
           path="/movie-detail"
           element={<MovieDetail></MovieDetail>}
+        />
+        <Route
+          exact
+          path="/search-movie"
+          element={<SearchMovie></SearchMovie>}
         />
       </Routes>
     </Router>

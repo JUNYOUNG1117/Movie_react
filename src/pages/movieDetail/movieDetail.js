@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { ActorContainer, GenreContainer } from "./styled";
+import { ContentContainer, Container } from "./styled";
 import axios from "axios";
 import { SmallCard } from "../../components/smallCard/smallCard";
 import { KEY } from "../../constant";
@@ -18,7 +18,7 @@ export const MovieDetail = () => {
   const [openDt, setOpenDt] = useState([]);
 
   // 제작 국가 저장
-  const [nationNm, setNationNm] = useState("");
+  const [nationNm, setNationNm] = useState([]);
 
   // 관람 등급 저장
   const [watchGradeNm, setWatchGradeNm] = useState([]);
@@ -37,13 +37,6 @@ export const MovieDetail = () => {
       setNationNm(response.data.movieInfoResult.movieInfo.nations);
       setOpenDt(response.data.movieInfoResult.movieInfo.openDt);
       setWatchGradeNm(response.data.movieInfoResult.movieInfo.audits);
-      console.log(response.data.movieInfoResult.movieInfo.actors);
-      console.log(response.data.movieInfoResult.movieInfo.genres);
-      console.log("국가 : " + response.data.movieInfoResult.movieInfo.nations);
-      console.log("개봉일 : " + response.data.movieInfoResult.movieInfo.openDt);
-      console.log(
-        "관람 등급 : " + response.data.movieInfoResult.movieInfo.audits
-      );
     } catch (e) {
       alert("네트워크를 확인하세요.");
       console.log(e);
@@ -52,55 +45,43 @@ export const MovieDetail = () => {
 
   return (
     <div>
-      <ActorContainer>
-        <h3>출연 배우</h3>
-        {actor.length !== 0 &&
-          actor.map((e, i) => {
-            if (i < 8) {
-              return <SmallCard key={i} props={e.peopleNm} />;
-            } else {
-              return;
-            }
-          })}
-      </ActorContainer>
-      <GenreContainer>
-        <h3>장르</h3>
-        {genreNm.length !== 0 &&
-          genreNm.map((e, i) => {
-            if (i < 8) {
+      <Container>
+        <ContentContainer>
+          <h3>출연 배우</h3>
+          {actor.length !== 0 &&
+            actor.map((e, i) => {
+              if (i < 8) {
+                return <SmallCard key={i} props={e.peopleNm} />;
+              } else {
+                return;
+              }
+            })}
+        </ContentContainer>
+        <ContentContainer>
+          <h3>장르</h3>
+          {genreNm.length !== 0 &&
+            genreNm.map((e, i) => {
               return <SmallCard key={i} props={e.genreNm} />;
-            } else {
-              return;
-            }
-          })}
-      </GenreContainer>
-      <GenreContainer>
-        <h3>제작 국가</h3>
-        {nationNm.length !== 0 &&
-          nationNm.map((e, i) => {
-            if (i < 8) {
+            })}
+        </ContentContainer>
+        <ContentContainer>
+          <h3>제작 국가</h3>
+          {nationNm.length !== 0 &&
+            nationNm.map((e, i) => {
               return <SmallCard key={i} props={e.nationNm} />;
-            } else {
-              return;
-            }
+            })}
+        </ContentContainer>
+        <ContentContainer>
+          <h3>개봉일</h3>
+          <SmallCard props={openDt}></SmallCard>
+        </ContentContainer>
+        <ContentContainer>
+          <h3>관람 등급</h3>
+          {watchGradeNm.map((e, i) => {
+            return <SmallCard key={i} props={e.watchGradeNm} />;
           })}
-      </GenreContainer>
-      <GenreContainer>
-        <h3>개봉일</h3>
-        <SmallCard props={openDt}></SmallCard>
-      </GenreContainer>
-
-      <GenreContainer>
-        <h3>관람 등급</h3>
-        {watchGradeNm.length !== 0 &&
-          watchGradeNm.map((e, i) => {
-            if (i < 8) {
-              return <SmallCard key={i} props={e.watchGradeNm} />;
-            } else {
-              return;
-            }
-          })}
-      </GenreContainer>
+        </ContentContainer>
+      </Container>
     </div>
   );
 };
