@@ -8,4 +8,8 @@ export const Container = styled.div`
     flex-wrap: wrap;
     gap:10px;
     justify-content: center;
+    background-color: white;
+    border: solid;
+    border-radius: 20px;
+    color: black;
 `

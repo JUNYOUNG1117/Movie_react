@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { ContentContainer, Container } from "./styled";
+import { ContentContainer, Container, Text } from "./styled";
 import axios from "axios";
 import { SmallCard } from "../../components/smallCard/smallCard";
 import { KEY } from "../../constant";
@@ -47,7 +47,7 @@ export const MovieDetail = () => {
     <div>
       <Container>
         <ContentContainer>
-          <h3>출연 배우</h3>
+          <Text>출연 배우</Text>
           {actor.length !== 0 &&
             actor.map((e, i) => {
               if (i < 8) {
@@ -58,25 +58,25 @@ export const MovieDetail = () => {
             })}
         </ContentContainer>
         <ContentContainer>
-          <h3>장르</h3>
+          <Text>장르</Text>
           {genreNm.length !== 0 &&
             genreNm.map((e, i) => {
               return <SmallCard key={i} props={e.genreNm} />;
             })}
         </ContentContainer>
         <ContentContainer>
-          <h3>제작 국가</h3>
+          <Text>제작 국가</Text>
           {nationNm.length !== 0 &&
             nationNm.map((e, i) => {
               return <SmallCard key={i} props={e.nationNm} />;
             })}
         </ContentContainer>
         <ContentContainer>
-          <h3>개봉일</h3>
+          <Text>개봉일</Text>
           <SmallCard props={openDt}></SmallCard>
         </ContentContainer>
         <ContentContainer>
-          <h3>관람 등급</h3>
+          <Text>관람 등급</Text>
           {watchGradeNm.map((e, i) => {
             return <SmallCard key={i} props={e.watchGradeNm} />;
           })}
