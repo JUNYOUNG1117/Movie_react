@@ -1,17 +1,16 @@
 import React from "react";
-import { Container } from "./styled";
+import { Container, Text } from "./styled";
 import { useNavigate } from "react-router-dom";
 
-export const Card = ({ props ,code }) => {
+export const Card = ({ props, code }) => {
+  // main 페이지에 api에서 영화 제목(props), 영화 코드(code)를 받음
   const navigate = useNavigate();
-  //console.log(props)
-  //console.log(code)
 
   return (
     <Container
-      onClick={()=>navigate("/movie-detail", { state: { code } } ) }
+      onClick={() => navigate("/movie-detail", { state: { code } })} // 영화 상세보기 페이지에 영화 코드를 넘김
     >
-      <div>{props}</div>
+      <Text>{props}</Text>
     </Container>
   );
 };

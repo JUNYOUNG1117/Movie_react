@@ -22,6 +22,8 @@ export const MovieDetail = () => {
 
   // 관람 등급 저장
   const [watchGradeNm, setWatchGradeNm] = useState([]);
+  // 누적 관객 수
+  const [audiAcc, setaudiAcc] = useState([]);
 
   useEffect(() => {
     getMovieDetail();
@@ -38,7 +40,6 @@ export const MovieDetail = () => {
       setOpenDt(response.data.movieInfoResult.movieInfo.openDt);
       setWatchGradeNm(response.data.movieInfoResult.movieInfo.audits);
     } catch (e) {
-      alert("네트워크를 확인하세요.");
       console.log(e);
     }
   };

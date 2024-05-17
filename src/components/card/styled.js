@@ -6,7 +6,12 @@ export const Container = styled.div`
   border:  solid #c9c9c9;
   border-radius: 10px;
   width: 300px;
+  height: 80px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   &:hover {
     background-color: white;
     color: black;
@@ -14,3 +19,9 @@ export const Container = styled.div`
   }
   
 `;
+
+export const Text = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

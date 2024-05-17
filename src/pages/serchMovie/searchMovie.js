@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { KEY } from "../../constant";
-import { Button, Search, Container, MovieList, SearchBar, SearchText } from "./styled";
+import { Button, Search, Container, MovieList, SearchBar, SearchText, SearchFail } from "./styled";
 import { useNavigate } from "react-router-dom";
 
 export const SearchMovie = () => {
@@ -9,9 +9,9 @@ export const SearchMovie = () => {
   const [serchInput, setSerchInput] = useState(0);
   const [searchResult, setSearchResult] = useState([]);
   const [movieList, setMovieList] = useState([]);
-  const [code, setCode] = useState([]);
-
+  
   useEffect(() => {
+    console.log(serchInput)
     if (movieList.length > 0) {
       const filter = movieList.filter((result) => {
         if (result !== "") {
@@ -48,11 +48,6 @@ export const SearchMovie = () => {
         영화 검색 :
         </SearchText>
         <Search type="text" placeholder="영화 제목을 입력하세요" onChange={getSerchInput}>
-          {/* <input
-            placeholder="영화 제목을 입력하세요"
-            onChange={getSerchInput}
-            type="text"
-          /> */}
         </Search>
         <Button onClick={getMovieList}>Search</Button>
       </SearchBar>
@@ -69,7 +64,7 @@ export const SearchMovie = () => {
             );
           })
         ) : (
-          <></>
+          <SearchFail>검색 결과가 없습니다.</SearchFail>
         )}
       </Container>
     </>

@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Container, SerchInput } from "./styled";
+import React from "react";
+import { Container, Button } from "./styled";
 import { useNavigate } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 export const Header = () => {
-    const navigate = useNavigate();
-  
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
   return (
-    <>
-      <Container onClick={()=>navigate("/") }>영화 일일 박스오피스 순위</Container>
-      <SerchInput onClick={()=>navigate("/search-movie") }>
-        <div>영화 검색</div>
-      </SerchInput>
-    </>
+      <Container>
+        <div onClick={() => navigate("/")}>일일 박스오피스</div>
+        <Button onClick={() => navigate("/search-movie")}>영화 검색</Button>
+      </Container>
+
   );
 };

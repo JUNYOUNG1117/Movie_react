@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   border-bottom: 1px solid #c9c9c9;
   flex-wrap: wrap;
-  
+  align-items: center;
   
 `
 
@@ -56,7 +56,10 @@ export const MovieList = styled.div`
   &:hover {
     background-color: white;
     color: black;
-    
-
   }
-`;
+`
+
+export const SearchFail = styled.div`
+  text-align: center;
+  display: flex;
+`
