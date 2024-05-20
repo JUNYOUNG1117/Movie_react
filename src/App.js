@@ -8,11 +8,13 @@ import "./App.css";
 import { Header } from "./components/header/header";
 import { Main } from "./pages/main/main";
 import { MovieDetail } from "./pages/movieDetail/movieDetail";
+import { SearchMovie } from "./pages/serchMovie/searchMovie";
+import { Footer } from "./components/footer/footer";
 
 function App() {
   return (
     <Router>
-      <Header />
+      <Header/>
       <Routes>
         <Route exact path="/" element={<Navigate to="main" />} />
         <Route exact path="/main" element={<Main></Main>} />
@@ -21,7 +23,13 @@ function App() {
           path="/movie-detail"
           element={<MovieDetail></MovieDetail>}
         />
+        <Route
+          exact
+          path="/search-movie"
+          element={<SearchMovie></SearchMovie>}
+        />
       </Routes>
+      <Footer/>
     </Router>
   );
 }

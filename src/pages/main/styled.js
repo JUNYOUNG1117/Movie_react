@@ -10,4 +10,5 @@ export const Container = styled.div`
     flex-wrap: wrap;
     gap:30px;
     justify-content: center;
+    background-color: black;
 `

@@ -1,8 +1,16 @@
 import React from "react";
-import { Container } from "./styled";
-
+import { Container, Button } from "./styled";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 export const Header = () => {
-    return (
-        <Container>영화 일일 박스오피스 순위</Container>
-    )
-}
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  return (
+      <Container>
+        <div onClick={() => navigate("/")}>일일 박스오피스</div>
+        <Button onClick={() => navigate("/search-movie")}>영화 검색</Button>
+      </Container>
+
+  );
+};
